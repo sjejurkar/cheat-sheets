@@ -1,4 +1,4 @@
-# Docker Cheatsheet
+# Docker Cheat Sheet
 Quick reference for common docker commands.
 
 ## Docker Images
@@ -29,20 +29,24 @@ docker build --build-arg DEMO_MODE=0 --tag <image_name>:<tag_name> .
 docker ps
 ```
 
-### list all containers
+### List all containers
 ```
 docker ps -a
 ```
 
-### connect to a running container
+### Connect to a running container
 ```
 docker exec -it <container name> /bin/bash
 ```
 
-
 ### Copy files from container to local disk
 ```
 docker cp <containerId>:/file/path/within/container /host/path/target
+```
+
+### Copy files local disk to from container
+```
+docker cp /host/path/target <containerId>:/file/path/within/container
 ```
 
 ## Docker Compose
