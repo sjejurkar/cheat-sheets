@@ -1,2 +1,2 @@
 # cheat-sheets
-Cheat Sheets for docker, git, kubernetes, terraform etc
+Cheat Sheets and examples for docker, git, kubernetes, terraform, Azure CLI, AWS CLI etc
