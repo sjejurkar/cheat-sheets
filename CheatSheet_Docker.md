@@ -49,6 +49,16 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 docker cp /host/path/target <containerId>:/file/path/within/container
 ```
 
+### export/save image to gzip file
+```
+docker save my-image:my-tag | gzip -c > my_image_my_tag.gz
+```
+
+### import image from gzip file
+```
+docker load < my_image_my_tag.gz
+```
+
 ## Docker Compose
 ### Build image using docker-compose
 ```
