@@ -24,6 +24,12 @@ docker build --build-arg DEMO_MODE=0 --tag <image_name>:<tag_name> .
 ```
 
 ## Docker Containers
+
+### Create a container
+Create a container from an image. Options: -p = port mapping, --detach = run in background)
+```
+docker run -p <host-port>:<container-port> --detach --name <container-name> <image-name>:<tag-name>
+```
 ### List running containers
 ```
 docker ps
@@ -68,6 +74,22 @@ docker-compose up
 ### Stop container and dependent containers using docker-compose
 ```
 docker-compose down
+```
+
+## Docker Networks
+List all networks a container belongs to
+```
+docker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}{{$key}} {{end}}' [container]
+```
+
+List all containers belonging to a network by name
+```
+docker network inspect -f '{{range .Containers}}{{.Name}} {{end}}' [network]
+```
+
+Attach a running container to a network
+```
+docker network connect [network] [container]
 ```
 
 ## Docker and PostgreSQL database
