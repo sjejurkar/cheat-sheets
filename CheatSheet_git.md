@@ -103,3 +103,8 @@ git push origin <tag-name>   # push the tag to remote
 ```
 git tag -n3
 ```
+  
+### Log user out using CLI
+```
+git config --global --unset credential.helper
+```
