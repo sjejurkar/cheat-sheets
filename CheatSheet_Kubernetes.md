@@ -1,5 +1,7 @@
 # Kuberenetes Cheat Sheet
 
+## Commands to get information about supported features
+
 ### get list of resources the cluster supports
 ```
 kubectl api-resources
@@ -25,6 +27,7 @@ kubectl explain services.spec
 kubectl explain services.spec.type
 ```
 
+## Operational commands for you cluster
 ### get all resources
 ```
 kubectl get all
@@ -58,10 +61,10 @@ kubectl get po --show-labels
 ### deployments
 ```
 sudo kubectl get deployments
-sudo kubectl describe deployment inteligen-deployment
-sudo kubectl rollout history deployment inteligen-deployment
-sudo kubectl rollout restart deployment/inteligen-deployment
-sudo kubectl rollout status -w deployment/inteligen-deployment
+sudo kubectl describe deployment <deployment-name>
+sudo kubectl rollout history deployment <deployment-name>
+sudo kubectl rollout restart deployment/<deployment-name>
+sudo kubectl rollout status -w deployment/<deployment-name>
 ```
 
 ### List the environment variables defined on all pods
@@ -71,7 +74,7 @@ kubectl set env pods --all --list
 
 ### push/inject environment variables to pod (will restart pod)
 ```
-kubectl set env deployment/user-mgmt DEMO_MODE=0 UM_EXPIRY=2022-12-31
+kubectl set env deployment/<deployment-name> VAR_ONE=value1 VAR_TWO=value2
 ```
 
 ### connect to PostgreSQL database on Kubernetes pod
@@ -82,11 +85,11 @@ kubectl get pods -o wide
 
 ### connect to Postgres
 ```
-psql -h 192.168.227.140  -U postgres --password
+psql -h <ip-address>  -U postgres --password
 ```
 ### run SQL script in Postgres
 ```
-psql -h 192.168.227.140  -U postgres --password -f ./alien_vault_pulse.sql 
+psql -h <ip-address>  -U postgres --password -f <sql-script-name>
 ```
 
 #### NOTE: install psql if it is not available 
